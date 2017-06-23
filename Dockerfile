@@ -1,4 +1,4 @@
-FROM erdc/debian_base
+FROM erdc:debian_base
 
 MAINTAINER Proteus Project <proteus@googlegroups.com>
 
