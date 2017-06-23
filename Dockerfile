@@ -25,7 +25,7 @@ RUN mkdir /home/$NB_USER/.jupyter && \
 
 RUN chown -R $NB_USER:users /home/$NB_USER
 
-RUN pip3 install pyzmq==16.0.2 --install-option="--zmq=/home/$NB_USER/proteus/linux2"
+RUN pip3 install pyzmq==16.0.2
 RUN pip3 install six==1.9.0
 RUN pip3 install packaging==16.8
 RUN pip3 install appdirs
