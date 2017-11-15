@@ -26,21 +26,21 @@ RUN mkdir /home/$NB_USER/.jupyter && \
 RUN chown -R $NB_USER:users /home/$NB_USER
 
 RUN pip install configparser
-RUN	pip install ipyparallel 
-RUN	pip install ipython 
-RUN	pip install terminado 
-RUN	pip install jupyter 
-RUN	pip install jupyterlab 
-RUN	pip install ipywidgets 
-RUN	pip install ipyleaflet 
-RUN	pip install jupyter_dashboards 
-RUN	pip install pythreejs 
-RUN	pip install rise 
-RUN	pip install cesiumpy 
-RUN	pip install bqplot 
-RUN	pip install hide_code 
-RUN	pip install matplotlib 
-RUN	pip install ipympl 
+RUN	pip install ipyparallel==6.0.2 
+RUN	pip install ipython==5.3.0
+RUN	pip install terminado==0.6 
+RUN	pip install jupyter==1.0.0 
+RUN	pip install jupyterlab==0.18.1 
+RUN	pip install ipywidgets==6.0.0 
+RUN	pip install ipyleaflet==0.3.0 
+RUN	pip install jupyter_dashboards==0.7.0 
+RUN	pip install pythreejs==0.3.0 
+RUN	pip install rise==4.0.0b1
+RUN	pip install cesiumpy==0.3.3 
+RUN	pip install bqplot==0.9.0 
+RUN	pip install hide_code==0.4.0 
+RUN	pip install matplotlib==2.0.2 
+RUN	pip install ipympl
 RUN	pip install ipymesh
 RUN /usr/local/bin/jupyter serverextension enable --py jupyterlab --sys-prefix
 RUN /usr/local/bin/jupyter nbextension enable --py --sys-prefix widgetsnbextension
