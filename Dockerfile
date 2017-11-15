@@ -26,8 +26,8 @@ RUN mkdir /home/$NB_USER/.jupyter && \
 RUN chown -R $NB_USER:users /home/$NB_USER
 
 RUN pip install configparser
-RUN	pip install ipyparallel==6.0.2 
 RUN	pip install ipython==5.3.0
+RUN	pip install ipyparallel==6.0.2
 RUN	pip install terminado==0.6 
 RUN	pip install jupyter==1.0.0 
 RUN	pip install jupyterlab==0.18.1 
