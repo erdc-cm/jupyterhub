@@ -25,29 +25,38 @@ RUN mkdir /home/$NB_USER/.jupyter && \
 
 RUN chown -R $NB_USER:users /home/$NB_USER
 
-RUN pip3 install pyzmq==16.0.2
-RUN pip3 install six==1.9.0
-RUN pip3 install packaging==16.8
-RUN pip3 install appdirs
-RUN pip3 install widgetsnbextension==2.0.0
-RUN pip3 install ipyparallel==6.0.2 ipython==5.3.0 terminado==0.6 jupyter==1.0.0 jupyterlab==0.18.1  notebook==4.4.0 widgetsnbextension==2.0.0 ipywidgets==6.0.0 ipyleaflet==0.3.0 jupyter_dashboards==0.7.0 pythreejs==0.3.0 rise==4.0.0b1 cesiumpy==0.3.3 bqplot==0.9.0 hide_code==0.4.0 ipympl ipymesh
-RUN pip3 install jupyterhub==0.7.2
-RUN /usr/local/bin/jupyter serverextension enable --py jupyterlab --sys-prefix \
-    && /usr/local/bin/jupyter nbextension enable --py --sys-prefix widgetsnbextension \
-    && /usr/local/bin/jupyter nbextension enable --py --sys-prefix bqplot \
-    && /usr/local/bin/jupyter nbextension enable --py --sys-prefix pythreejs \
-    && /usr/local/bin/jupyter nbextension enable --py --sys-prefix ipyleaflet \
-    && /usr/local/bin/jupyter nbextension enable --py --sys-prefix ipympl \
-    && /usr/local/bin/jupyter nbextension enable --py --sys-prefix ipymesh \
-    && /usr/local/bin/jupyter nbextension install --py --sys-prefix rise \
-    && /usr/local/bin/jupyter nbextension enable --py --sys-prefix rise \
-    && /usr/local/bin/jupyter nbextension install --py --sys-prefix hide_code \
-    && /usr/local/bin/jupyter nbextension enable --py --sys-prefix hide_code \
-    && /usr/local/bin/jupyter dashboards quick-setup --sys-prefix \
-    && /usr/local/bin/jupyter nbextension install --sys-prefix --py ipyparallel \
-    && /usr/local/bin/jupyter nbextension enable --sys-prefix --py ipyparallel \
-    && /usr/local/bin/jupyter serverextension enable --sys-prefix --py ipyparallel \
-    && /usr/local/bin/jupyter serverextension enable --py ipyparallel
+RUN pip install configparser
+RUN	pip install ipyparallel 
+RUN	pip install ipython 
+RUN	pip install terminado 
+RUN	pip install jupyter 
+RUN	pip install jupyterlab 
+RUN	pip install ipywidgets 
+RUN	pip install ipyleaflet 
+RUN	pip install jupyter_dashboards 
+RUN	pip install pythreejs 
+RUN	pip install rise 
+RUN	pip install cesiumpy 
+RUN	pip install bqplot 
+RUN	pip install hide_code 
+RUN	pip install matplotlib 
+RUN	pip install ipympl 
+RUN	pip install ipymesh
+RUN /usr/local/bin/jupyter serverextension enable --py jupyterlab --sys-prefix
+RUN /usr/local/bin/jupyter nbextension enable --py --sys-prefix widgetsnbextension
+RUN /usr/local/bin/jupyter nbextension enable --py --sys-prefix bqplot
+RUN /usr/local/bin/jupyter nbextension enable --py --sys-prefix pythreejs
+RUN /usr/local/bin/jupyter nbextension enable --py --sys-prefix ipympl
+RUN /usr/local/bin/jupyter nbextension enable --py --sys-prefix ipymesh
+RUN /usr/local/bin/jupyter nbextension enable --py --sys-prefix ipyleaflet
+RUN /usr/local/bin/jupyter nbextension install --py --sys-prefix hide_code
+RUN /usr/local/bin/jupyter nbextension enable --py --sys-prefix hide_code
+RUN /usr/local/bin/jupyter nbextension install --py --sys-prefix rise
+RUN /usr/local/bin/jupyter nbextension enable --py --sys-prefix rise
+RUN /usr/local/bin/jupyter dashboards quick-setup --sys-prefix
+RUN /usr/local/bin/jupyter nbextension install --sys-prefix --py ipyparallel
+RUN /usr/local/bin/jupyter nbextension enable --sys-prefix --py ipyparallel
+RUN /usr/local/bin/jupyter serverextension enable --sys-prefix --py ipyparallel
 
 EXPOSE 8888
 WORKDIR /home/$NB_USER
