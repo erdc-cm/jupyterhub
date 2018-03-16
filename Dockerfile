@@ -25,23 +25,7 @@ RUN mkdir /home/$NB_USER/.jupyter && \
 
 RUN chown -R $NB_USER:users /home/$NB_USER
 
-RUN pip install configparser
-RUN	pip install ipython==5.3.0
-RUN	pip install ipyparallel==6.0.2
-RUN	pip install terminado==0.6 
-RUN	pip install jupyter==1.0.0 
-RUN	pip install jupyterlab==0.18.1 
-RUN	pip install ipywidgets==6.0.0 
-RUN	pip install ipyleaflet==0.3.0 
-RUN	pip install jupyter_dashboards==0.7.0 
-RUN	pip install pythreejs==0.3.0 
-RUN	pip install rise==4.0.0b1
-RUN	pip install cesiumpy==0.3.3 
-RUN	pip install bqplot==0.9.0 
-RUN	pip install hide_code==0.4.0 
-RUN	pip install matplotlib==2.0.2 
-RUN	pip install ipympl
-RUN	pip install ipymesh
+RUN pip install -U configparser==3.5.0 ipyparallel==6.1.1 ipython==5.5.0 terminado==0.8.1 jupyter==1.0.0 jupyterlab==0.31.12 ipywidgets==7.1.2 ipyleaflet==0.7.1 jupyter_dashboards==0.7.0 pythreejs==0.4.1 rise==5.2.0 cesiumpy==0.3.3 bqplot==0.10.5 hide_code==0.5.0 ipympl==0.1.0 sympy==1.1.1 transforms3d==0.3.1 ipymesh
 RUN /usr/local/bin/jupyter serverextension enable --py jupyterlab --sys-prefix
 RUN /usr/local/bin/jupyter nbextension enable --py --sys-prefix widgetsnbextension
 RUN /usr/local/bin/jupyter nbextension enable --py --sys-prefix bqplot
@@ -57,6 +41,7 @@ RUN /usr/local/bin/jupyter dashboards quick-setup --sys-prefix
 RUN /usr/local/bin/jupyter nbextension install --sys-prefix --py ipyparallel
 RUN /usr/local/bin/jupyter nbextension enable --sys-prefix --py ipyparallel
 RUN /usr/local/bin/jupyter serverextension enable --sys-prefix --py ipyparallel
+RUN /usr/local/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager
 
 EXPOSE 8888
 WORKDIR /home/$NB_USER
