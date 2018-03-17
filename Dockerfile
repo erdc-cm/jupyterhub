@@ -46,7 +46,8 @@ RUN /usr/local/bin/jupyter serverextension enable --sys-prefix --py ipyparallel
 RUN REPO=http://cdn-fastly.deb.debian.org \
     && echo "deb $REPO/debian jessie main\ndeb $REPO/debian-security jessie/updates main" > /etc/apt/sources.list \
     && apt-get update && apt-get -yq dist-upgrade \
-    && curl -sL https://deb.nodesource.com/setup_9.x | /bin/bash - apt-get install -yq -no-install-recommends --fix-missing nodejs \
+    && curl -sL https://deb.nodesource.com/setup_9.x | bash - \
+    && apt-get install -yq -no-install-recommends --fix-missing nodejs \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
     
