@@ -43,6 +43,9 @@ RUN /usr/local/bin/jupyter nbextension install --sys-prefix --py ipyparallel
 RUN /usr/local/bin/jupyter nbextension enable --sys-prefix --py ipyparallel
 RUN /usr/local/bin/jupyter serverextension enable --sys-prefix --py ipyparallel
 
+RUN curl -sL https://deb.nodesource.com/setup_9.x | bash - apt-get install -y nodejs
+RUN /usr/local/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager
+
 
 EXPOSE 8888
 WORKDIR /home/$NB_USER
